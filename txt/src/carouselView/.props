@@ -28,12 +28,12 @@
 
   <!-- nuget -->
   <PropertyGroup>
-    <NuspecVersion>$(BuildVersion)-pre2</NuspecVersion>
+    <NuspecVersion>$(BuildVersion)-pre2-mrv2</NuspecVersion>
     <NuspecName>.nuspec</NuspecName>
     <NuspecId>Xamarin.Forms.CarouselView</NuspecId>
     <NuspecTags>xamarin forms carouselview xamarinforms xamarinformscarouselview xamarin.forms.carouselview</NuspecTags>
     <NuspecProjectUrl>http://xamarin.com/forms</NuspecProjectUrl>
-    <NuspecDescription>CarouselView for Xamarin.Forms</NuspecDescription>
+    <NuspecDescription>CarouselView for Xamarin.Forms, forked by Tadeu Rahian</NuspecDescription>
   </PropertyGroup>
 
   <ItemGroup>
