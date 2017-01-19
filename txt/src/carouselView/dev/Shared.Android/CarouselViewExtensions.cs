@@ -20,6 +20,8 @@ using ViewHolder = Android.Support.V7.Widget.RecyclerView.ViewHolder;
 using Observer = Android.Support.V7.Widget.RecyclerView.AdapterDataObserver;
 using LayoutManager = Android.Support.V7.Widget.RecyclerView.LayoutManager;
 using LayoutParams = Android.Support.V7.Widget.RecyclerView.LayoutParams;
+using Android.Util;
+using Android.Runtime;
 
 namespace Xamarin.Forms.Platform
 {
@@ -248,7 +250,7 @@ namespace Xamarin.Forms.Platform
 		}
 	}
 
-	public class CarouselViewRenderer : ViewRenderer<CarouselView, RecyclerView>
+	public class CarouselViewRenderer : ViewRenderer<CarouselView, OneFingerScrollRecyclerView>
 	{
 
         private static CarouselView _instance;
@@ -475,13 +477,13 @@ namespace Xamarin.Forms.Platform
 		#region Private Members
 		void Initialize()
 		{
-			// cache hit? Check if the view page is already created
-			RecyclerView recyclerView = Control;
+            // cache hit? Check if the view page is already created
+            OneFingerScrollRecyclerView recyclerView = Control;
 			if (recyclerView != null)
 				return;
 
 			// cache miss
-			recyclerView = new RecyclerView(Context);            
+			recyclerView = new OneFingerScrollRecyclerView(Context);            
 			SetNativeControl(recyclerView);
 
 			// layoutManager
@@ -1237,4 +1239,23 @@ namespace Xamarin.Forms.Platform
 			Controller.BindView(carouselHolder.View, item);
 		}
 	}
+
+    public class OneFingerScrollRecyclerView : RecyclerView
+    {
+        public OneFingerScrollRecyclerView(Context context) : base(context) { }
+
+        public OneFingerScrollRecyclerView(Context context, IAttributeSet attrs) : base(context, attrs) { }
+
+        public OneFingerScrollRecyclerView(IntPtr javaReference, JniHandleOwnership transfer) : base(javaReference, transfer) { }
+
+        public OneFingerScrollRecyclerView(Context context, IAttributeSet attrs, int defStyle) : base(context, attrs, defStyle) { }
+             
+        public override bool OnTouchEvent(MotionEvent e)
+        {            
+            if (e.PointerCount > 1 && e.Action != MotionEventActions.Pointer1Down)
+                return false;
+            else
+                return base.OnTouchEvent(e);
+        }
+    }
 }
