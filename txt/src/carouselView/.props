@@ -9,7 +9,7 @@
 
   <!--legacy-->
   <PropertyGroup>
-    <RootNamespace>Xamarin.Forms</RootNamespace>
+    <RootNamespace>Xamarin.Forms</RoWotNamespace>
   </PropertyGroup>
 
   <!--version-->
@@ -28,7 +28,7 @@
 
   <!-- nuget -->
   <PropertyGroup>
-    <NuspecVersion>$(BuildVersion)-pre2</NuspecVersion>
+    <NuspecVersion>$(BuildVersion)-pre2-mrv3</NuspecVersion>
     <NuspecName>.nuspec</NuspecName>
     <NuspecId>Xamarin.Forms.CarouselView</NuspecId>
     <NuspecTags>xamarin forms carouselview xamarinforms xamarinformscarouselview xamarin.forms.carouselview</NuspecTags>
