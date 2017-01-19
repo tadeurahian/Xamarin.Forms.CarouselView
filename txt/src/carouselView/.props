@@ -9,7 +9,7 @@
 
   <!--legacy-->
   <PropertyGroup>
-    <RootNamespace>Xamarin.Forms</RoWotNamespace>
+    <RootNamespace>Xamarin.Forms</RootNamespace>
   </PropertyGroup>
 
   <!--version-->
